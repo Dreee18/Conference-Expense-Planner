@@ -1,4 +1,6 @@
-.container {
+.nav-container {
+  top: 0;
+  position: sticky;
   background-color: #181818;
   display: flex;
   justify-content: space-between;
@@ -7,10 +9,7 @@
   border-radius: 20px;
   box-shadow: 4px 4px 8px rgba(90, 90, 90, 0.46);
   box-sizing: border-box;
-}
-
-.title {
-  color: #fff;
+  margin-bottom: 10px;
 }
 
 .nav-list {
@@ -27,7 +26,7 @@
 #show-details {
   text-decoration: none;
   color: #fff;
-  border: 1px solid yellow;
+  border: 1px solid rgb(255, 255, 255);
   border-radius: 20px;
   background: none;
   padding: 5px 12px;
@@ -38,7 +37,7 @@
 .nav-list a:hover,
 #show-details:hover {
   color: #fff;
-  border-color: #fff;
+  border-color: yellow;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.44);
   padding: 8px 12px;
   cursor: pointer;
