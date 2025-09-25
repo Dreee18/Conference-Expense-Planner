@@ -6,12 +6,13 @@ type Item = {
   title: string;
   price: number;
   capacity: number;
+  isAddons: boolean
 };
 
-function ItemCard({ image, title, price, capacity }: Item) {
+function ItemCard({ image, title, price, capacity, isAddons }: Item) {
   const [quantity, setQuantity] = useState(0);
   const handleIncrement = () => {
-    setQuantity(quantity !== capacity ? quantity + 1 : capacity);
+    setQuantity(quantity !== capacity || !isAddons ? quantity + 1 : capacity);
   };
 
   const handleDecrement = () => {
@@ -24,7 +25,7 @@ function ItemCard({ image, title, price, capacity }: Item) {
 
       <div id="item-info">
         <h3 id="item-title">{title}</h3>
-        <h6 id="item-capacity">Capacity ({capacity})</h6>
+        {isAddons ? <h6 id="item-capacity">Capacity ({capacity})</h6> : <></>}
       </div>
 
       <div id="amount-info">

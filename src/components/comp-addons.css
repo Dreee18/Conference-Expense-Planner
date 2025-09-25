@@ -1,0 +1,13 @@
+#h1_addons{
+    text-align: start;
+    font-size: 4em;
+    padding-left: 50px;
+}
+
+.item-container {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+}
