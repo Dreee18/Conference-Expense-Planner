@@ -19,35 +19,35 @@ function VenueComp() {
           title="Conference Room"
           capacity={15}
           price={1500}
-          isAddons={true}
+          withCapacity={true}
         />
         <ItemCard
           image={AuditoriumHall}
           title="Auditorium Hall"
           capacity={200}
           price={5500}
-          isAddons={true}
+          withCapacity={true}
         />
         <ItemCard
           image={PresentationRoom}
           title="Presentation Room"
           capacity={50}
           price={3500}
-          isAddons={true}
+          withCapacity={true}
         />
         <ItemCard
           image={LargeMeetingRoom}
           title="Large Meeting Room"
           capacity={10}
           price={1000}
-          isAddons={true}
+          withCapacity={true}
         />
         <ItemCard
           image={SmallMeetingRoom}
           title="Small Meeting Room"
           capacity={5}
           price={800}
-          isAddons={true}
+          withCapacity={true}
         />
       </div>
     </div>

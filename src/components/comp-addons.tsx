@@ -17,37 +17,32 @@ function AddonsComp() {
         <ItemCard
           image={Projectors}
           title="Projectors"
-          capacity={0}
           price={200}
-          isAddons={false}
+          withCapacity={false}
         />
         <ItemCard
           image={Speaker}
           title="Speakers"
-          capacity={0}
           price={35}
-          isAddons={false}
+          withCapacity={false}
         />
         <ItemCard
           image={Microphones}
           title="Microphones"
-          capacity={0}
           price={45}
-          isAddons={false}
+          withCapacity={false}
         />
         <ItemCard
           image={Whiteboard}
           title="Whiteboards"
-          capacity={0}
           price={80}
-          isAddons={false}
+          withCapacity={false}
         />
         <ItemCard
           image={Signage}
           title="Signages"
-          capacity={0}
           price={80}
-          isAddons={false}
+          withCapacity={false}
         />
       </div>
     </div>

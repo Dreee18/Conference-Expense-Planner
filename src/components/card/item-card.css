@@ -105,3 +105,8 @@
   padding: 8px 12px;
   cursor: pointer;
 }
+
+#qty-changer > #item-qty {
+  border: none;
+  border-bottom: 1px solid gray;
+}

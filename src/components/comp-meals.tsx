@@ -16,30 +16,26 @@ function VenueComp() {
         <ItemCard
           image={Breakfast}
           title="Breakfast"
-          capacity={0}
           price={50}
-          isAddons={false}
+          withCapacity={false}
         />
         <ItemCard
           image={Lunch}
           title="Lunch"
-          capacity={0}
           price={65}
-          isAddons={false}
+          withCapacity={false}
         />
         <ItemCard
           image={HighTea}
           title="High Tea"
-          capacity={0}
           price={25}
-          isAddons={false}
+          withCapacity={false}
         />
         <ItemCard
           image={Dinner}
           title="Dinner"
-          capacity={0}
           price={70}
-          isAddons={false}
+          withCapacity={false}
         />
       </div>
     </div>

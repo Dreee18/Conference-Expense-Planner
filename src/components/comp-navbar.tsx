@@ -3,6 +3,7 @@ import HomeComp from "./comp-home";
 import VenueComp from "./comp-venue";
 import AddonsComp from "./comp-addons";
 import MealsComp from "./comp-meals";
+import ExpenseSummary from "./comp-summary";
 import "./comp-navbar.css";
 
 type Sections = {
@@ -11,6 +12,7 @@ type Sections = {
 };
 
 function NavBar() {
+  const [toggleDetails, setToggleDetails] = useState(true);
   const [sectionList, setSections] = useState<Sections[]>([
     {
       text: "Home",
@@ -52,13 +54,13 @@ function NavBar() {
 
   const displayContents = (section: Sections, index: number) => {
     if (index === 0 && section.isSelected) {
-      return <HomeComp />;
+      return <HomeComp key={index + "" + section} />;
     } else if (index === 1 && section.isSelected) {
-      return <VenueComp />;
+      return <VenueComp key={index + "" + section} />;
     } else if (index === 2 && section.isSelected) {
-      return <AddonsComp />;
+      return <AddonsComp key={index + "" + section} />;
     } else if (index === 3 && section.isSelected) {
-      return <MealsComp />;
+      return <MealsComp key={index + "" + section} />;
     }
   };
 
@@ -71,10 +73,17 @@ function NavBar() {
           {sectionList.map((value, i) => displaySections(value, i))}
         </ul>
 
-        <button id="show-details">Show Details</button>
+        <button
+          id="show-details"
+          onClick={() => setToggleDetails(!toggleDetails ? true : false)}
+        >
+          Show Details
+        </button>
       </div>
+
       <div className="main">
         {sectionList.map((value, i) => displayContents(value, i))}
+        {!toggleDetails ? <ExpenseSummary /> : <></>}
       </div>
     </>
   );
