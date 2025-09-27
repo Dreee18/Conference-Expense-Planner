@@ -13,20 +13,57 @@ type Item = {
 
 function ItemCard({ image, title, price, capacity, withCapacity }: Item) {
   const [quantity, setQuantity] = useState(0);
-  const {items, setItems} = useContext(AppContext)
+  const { items, setItems } = useContext(AppContext);
 
   const handleIncrement = () => {
-    const newQuantity = quantity !== capacity || !withCapacity ? quantity + 1 : capacity;
+    const newQuantity =
+      quantity !== capacity || !withCapacity ? quantity + 1 : capacity;
     setQuantity(newQuantity);
-    setItems([...items, {item_name: title, item_price: price, item_quantity: newQuantity}])
+
+    setItems((prevItems) => {
+      const existingIndex = prevItems.findIndex((i) => i.item_name === title);
+
+      if (existingIndex >= 0) {
+        const updated = [...prevItems];
+        updated[existingIndex] = {
+          ...updated[existingIndex],
+          item_quantity: newQuantity,
+        };
+        return updated;
+      } else {
+        return [
+          ...prevItems,
+          { item_name: title, item_price: price, item_quantity: newQuantity },
+        ];
+      }
+    });
   };
 
   const handleDecrement = () => {
     const newQuantity = quantity !== 0 ? quantity - 1 : 0;
     setQuantity(newQuantity);
-    setItems([...items, {item_name: title, item_price: price, item_quantity: newQuantity}])
-  };
 
+    setItems((prevItems) => {
+      const existingIndex = prevItems.findIndex(
+        (value) => value.item_name === title
+      );
+      const updated = [...prevItems];
+
+      if (existingIndex >= 0) {
+        updated[existingIndex] = {
+          ...updated[existingIndex],
+          item_quantity: newQuantity,
+        };
+
+         if (updated[existingIndex].item_quantity === 0)
+        {
+          return updated.filter(value => value.item_quantity !== 0)
+        }
+      }
+      return updated;
+    });
+  };
+  
   return (
     <div className="card-container">
       <img src={image} alt="item image" id="item-image" />

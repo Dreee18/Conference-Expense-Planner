@@ -5,34 +5,44 @@ import "./comp-summary.css";
 function ExpenseSummary() {
   const { items } = useContext(AppContext);
 
+  // Calculate the Total Price
+  const totalCost = items.reduce(
+    (sum, item) => sum + item.item_price * item.item_quantity,
+    0
+  );
+
+  // Retreive and Display an item
   const displayItemRow = () => {
     return items.map((item) => (
       <tr key={item.item_name}>
-        <td>{item.item_name}</td>
-        <td>{item.item_price.toFixed(2)}</td>
-        <td>{item.item_quantity}</td>
-        <td>${(item.item_price * item.item_quantity).toFixed(2)}</td>
+        <td className="item-name">{item.item_name}</td>
+        <td className="item-cost">${item.item_price.toFixed(2)}</td>
+        <td className="item-qty">{item.item_quantity}</td>
+        <td className="item-subtotal">${(item.item_price * item.item_quantity).toFixed(2)}</td>
       </tr>
     ));
   };
 
   return (
-    <div className="overlay">
-      <div className="expense_summary">
-        <h3>TOTAL COST FOR THE EVENT</h3>
-        <h2 id="total_price">$00000.00</h2>
+    <div id="summary-overlay">
+      <div id="summary-container">
+        <h3 id="summary-title">TOTAL COST FOR THE EVENT</h3>
+        <h2 id="summary-total">${totalCost.toFixed(2)}</h2>
 
-        <table id="item-summary">
-          <thead>
-            <tr>
-              <th id="item-name">Name</th>
-              <th id="item-cost">Unit Cost</th>
-              <th id="item-qty">Quantity</th>
-              <th id="subtotal">Sub Total</th>
-            </tr>
-          </thead>
-          <tbody>{displayItemRow()}</tbody>
-        </table>
+        <div id="table-container">
+          <table id="summary-table">
+            <thead id="table-header">
+              <tr>
+                <th className="item-name">Name</th>
+                <th className="item-cost">Unit Cost</th>
+                <th className="item-qty">Quantity</th>
+                <th className="item-subtotal">Sub Total</th>
+              </tr>
+            </thead>
+
+            <tbody id="table-body">{displayItemRow()}</tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

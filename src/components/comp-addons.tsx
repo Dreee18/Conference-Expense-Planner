@@ -7,8 +7,8 @@ import Whiteboard from "../assets/images/addons/whiteboard.png";
 import Signage from "../assets/images/addons/signage.png";
 
 function AddonsComp() {
-    return (
-        <div className="content-container">
+  return (
+    <div className="content-container">
       <h1 className="title" id="h1_addons">
         Add-ons <br /> Selection
       </h1>
@@ -46,7 +46,7 @@ function AddonsComp() {
         />
       </div>
     </div>
-    );
+  );
 }
 
-export default AddonsComp
+export default AddonsComp;

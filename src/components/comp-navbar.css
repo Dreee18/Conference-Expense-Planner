@@ -50,8 +50,3 @@
   padding: 8px 12px;
   box-shadow: 0 0 8px rgba(255, 255, 0, 0.44);
 }
-
-tbody{
-  height: 300px;
-  overflow: scroll;
-}

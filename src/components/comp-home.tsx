@@ -7,12 +7,12 @@ function HomeComp() {
   return (
     <>
       <div className="content-container">
-        <div className="col1">
+        <div id="col1">
           <h1 className="title">Conference Expense <br/> Planner</h1>
           <p>Plan your next major event with us!</p>
           <button id='btn-getstarted' onClick={() => handleClick}>Get Started</button>
         </div>
-        <div className="col2">
+        <div id="col2">
           <p>
             Welcome to BudgetEase Solutions, your trusted partner in simplifying
             budget management and financial solutions. At BudgetEase, we

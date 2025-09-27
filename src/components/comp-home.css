@@ -1,4 +1,4 @@
-.col1{
+#col1{
     display: flex;
     justify-content: center;
     align-items: start;
@@ -7,7 +7,7 @@
     padding: 20px;
 }
 
-.col2{
+#col2{
     width: 45%;
     padding: 20px;
 }

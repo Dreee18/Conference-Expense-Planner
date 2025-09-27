@@ -1,49 +1,66 @@
-.overlay {
+#summary-overlay {
   position: fixed;
   top: 0;
   left: 0;
+  height: 100vh;
+  width: 100vw;
 
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background: rgba(0, 0, 0, 0.5);
+
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
   z-index: 9998;
 }
 
-.expense_summary {
+#summary-container {
   display: flex;
   align-items: center;
-  flex-flow: column;
-  background-color: #ffffff;
+  flex-direction: column;
+
   width: 60%;
   padding: 20px;
+  background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.expense_summary h3 {
+#summary-container #summary-title {
   margin: 0;
+  padding: 10px 0px;
   font-size: 1.2em;
 }
 
-#total_price {
-  font-size: 2.5em;
+#summary-container #summary-total {
+  font-size: 3em;
   color: rgb(56, 56, 56);
   border-bottom: 1px solid rgb(56, 56, 56);
 }
 
-thead #item-name {
+#table-header th{
+  position: sticky;
+  top: 0;
+  background-color: #fff;
   border-bottom: 1px solid gray;
+  z-index: 2;
+}
+
+#table-container {
+  height: 300px;
+  overflow: auto;
+}
+
+#summary-table .item-name {
+  text-align: left;
   width: 300px;
   padding: 3px 0;
 }
 
-thead #item-cost,
-thead #item-qty,
-thead #subtotal {
-  border-bottom: 1px solid gray;
+#summary-table .item-cost,
+#summary-table .item-qty,
+#summary-table .item-subtotal {
+  text-align: end;
   width: 170px;
   padding: 3px 0;
 }
