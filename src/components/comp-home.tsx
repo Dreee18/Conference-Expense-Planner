@@ -1,17 +1,19 @@
 import './comp-home.css'
 
-function HomeComp() {
-    const handleClick = () => {
+type HomeProps = {
+  goToSection: (section: string) => void;
+}
 
-    }
+function HomeComp({goToSection} : HomeProps) {
   return (
     <>
       <div className="content-container">
         <div id="col1">
           <h1 className="title">Conference Expense <br/> Planner</h1>
           <p>Plan your next major event with us!</p>
-          <button id='btn-getstarted' onClick={() => handleClick}>Get Started</button>
+          <button id='btn-getstarted' onClick={() => goToSection("Venue")}>Get Started</button>
         </div>
+        
         <div id="col2">
           <p>
             Welcome to BudgetEase Solutions, your trusted partner in simplifying

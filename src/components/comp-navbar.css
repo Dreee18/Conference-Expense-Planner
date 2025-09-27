@@ -17,13 +17,14 @@
   display: flex;
   width: 50%;
   justify-content: space-around;
+  align-items: center;
   list-style: none;
   font-size: 1.07em;
   margin: 0;
   padding: 0;
 }
 
-.nav-list a,
+.nav-list #nav-sectionBTN,
 #show-details {
   text-decoration: none;
   color: #fff;
@@ -35,7 +36,7 @@
   transition: all 0.15s ease-in-out;
 }
 
-.nav-list a:hover,
+.nav-list #nav-sectionBTN:hover,
 #show-details:hover {
   color: #fff;
   border-color: yellow;
@@ -44,7 +45,7 @@
   cursor: pointer;
 }
 
-.selected > a {
+.selected > #nav-sectionBTN {
   color: yellow;
   border-color: yellow;
   padding: 8px 12px;

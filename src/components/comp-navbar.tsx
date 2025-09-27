@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
 import HomeComp from "./comp-home";
 import VenueComp from "./comp-venue";
 import AddonsComp from "./comp-addons";
@@ -35,9 +35,9 @@ function NavBar() {
   const displaySections = (list: Sections, index: number) => {
     return (
       <li key={index} className={list.isSelected ? "selected" : ""}>
-        <a href={"#" + list.text} onClick={() => toggleSelected(index)}>
+        <button id="nav-sectionBTN" onClick={() => toggleSelected(index)}>
           {list.text}
-        </a>
+        </button>
       </li>
     );
   };
@@ -52,15 +52,25 @@ function NavBar() {
     );
   };
 
+   const goToSection = (name: string) => {
+    setSections(
+      sectionList.map((section) =>
+        section.text === name
+          ? { ...section, isSelected: true }
+          : { ...section, isSelected: false }
+      )
+    );
+  };
+
   const displayContents = (section: Sections, index: number) => {
     if (index === 0 && section.isSelected) {
-      return <HomeComp key={index + "" + section} />;
+      return <HomeComp key="home" goToSection={goToSection}/>;
     } else if (index === 1 && section.isSelected) {
-      return <VenueComp key={index + "" + section} />;
+      return <VenueComp key="venue" />;
     } else if (index === 2 && section.isSelected) {
-      return <AddonsComp key={index + "" + section} />;
+      return <AddonsComp key="addons" />;
     } else if (index === 3 && section.isSelected) {
-      return <MealsComp key={index + "" + section} />;
+      return <MealsComp key="meals" />;
     }
   };
 

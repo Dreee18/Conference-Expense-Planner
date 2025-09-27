@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from "react";
+import { useEffect, useState, type ChangeEvent } from "react";
 import { useContext } from "react";
 import { AppContext } from "../../utils/context";
 import "./item-card.css";
@@ -12,8 +12,16 @@ type Item = {
 };
 
 function ItemCard({ image, title, price, capacity, withCapacity }: Item) {
-  const [quantity, setQuantity] = useState(0);
   const { items, setItems } = useContext(AppContext);
+  const existingItem = items.find((i) => i.item_name === title);
+  const [quantity, setQuantity] = useState(existingItem?.item_quantity ?? 0);
+
+  useEffect(() => {
+    const updatedItem = items.find((i) => i.item_name === title);
+    if (updatedItem) {
+      setQuantity(updatedItem.item_quantity);
+    }
+  }, [items, title]);
 
   const handleIncrement = () => {
     const newQuantity =
@@ -55,15 +63,14 @@ function ItemCard({ image, title, price, capacity, withCapacity }: Item) {
           item_quantity: newQuantity,
         };
 
-         if (updated[existingIndex].item_quantity === 0)
-        {
-          return updated.filter(value => value.item_quantity !== 0)
+        if (updated[existingIndex].item_quantity === 0) {
+          return updated.filter((value) => value.item_quantity !== 0);
         }
       }
       return updated;
     });
   };
-  
+
   return (
     <div className="card-container">
       <img src={image} alt="item image" id="item-image" />
